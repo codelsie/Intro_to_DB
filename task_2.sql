@@ -20,8 +20,8 @@ CREATE TABLE Books (
 -- Create customers table
 CREATE TABLE Customers (
     customer_id INT AUTO_INCREMENT PRIMARY KEY,
-    customer_name VARCHAR(215) NOT NULL,
-    email VARCHAR(215) NOT NULL,
+    customer_name VARCHAR(215),
+    email VARCHAR(215),
     address TEXT
 );
 
@@ -38,7 +38,7 @@ CREATE TABLE Order_Details (
     order_detail_id INT AUTO_INCREMENT PRIMARY KEY,
     order_id INT,
     book_id INT,
-    quantity INT,
+    quantity DOUBLE,
     FOREIGN KEY (order_id) REFERENCES Orders(order_id),
     FOREIGN KEY (book_id) REFERENCES Books(book_id)
 );
