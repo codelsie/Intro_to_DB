@@ -1,17 +1,15 @@
--- Drop tables in reverse dependency order
-DROP TABLE IF EXISTS OrderDetails;
-DROP TABLE IF EXISTS Orders;
-DROP TABLE IF EXISTS Books;
-DROP TABLE IF EXISTS Customers;
-DROP TABLE IF EXISTS Authors;
+DROP DATABASE IF EXISTS alx_book_store;
+CREATE DATABASE alx_book_store;
+USE alx_book_store;
 
--- Create the 'Authors' table
+
+-- Create authors table
 CREATE TABLE Authors (
     author_id INT AUTO_INCREMENT PRIMARY KEY,
     author_name VARCHAR(100) NOT NULL
 );
 
--- Create the 'Books' table
+-- Create books table
 CREATE TABLE Books (
     book_id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(200) NOT NULL,
@@ -20,14 +18,14 @@ CREATE TABLE Books (
     FOREIGN KEY (author_id) REFERENCES Authors(author_id)
 );
 
--- Create the 'Customers' table
+-- Create customers table
 CREATE TABLE Customers (
     customer_id INT AUTO_INCREMENT PRIMARY KEY,
-    customer_name VARCHAR(100),
+    customer_name VARCHAR(100) NOT NULL,
     email VARCHAR(100)
 );
 
--- Create the 'Orders' table
+-- Create orders table
 CREATE TABLE Orders (
     order_id INT AUTO_INCREMENT PRIMARY KEY,
     customer_id INT,
@@ -35,8 +33,8 @@ CREATE TABLE Orders (
     FOREIGN KEY (customer_id) REFERENCES Customers(customer_id)
 );
 
--- Create the 'OrderDetails' table
-CREATE TABLE OrderDetails (
+-- Create order_details table
+CREATE TABLE Order_Details (
     order_detail_id INT AUTO_INCREMENT PRIMARY KEY,
     order_id INT,
     book_id INT,
