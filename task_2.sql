@@ -2,7 +2,6 @@ DROP DATABASE IF EXISTS alx_book_store;
 CREATE DATABASE alx_book_store;
 USE alx_book_store;
 
-
 -- Create authors table
 CREATE TABLE Authors (
     author_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -21,8 +20,9 @@ CREATE TABLE Books (
 -- Create customers table
 CREATE TABLE Customers (
     customer_id INT AUTO_INCREMENT PRIMARY KEY,
-    customer_name VARCHAR(100) NOT NULL,
-    email VARCHAR(100)
+    customer_name VARCHAR(215) NOT NULL,
+    email VARCHAR(215) NOT NULL,
+    address TEXT
 );
 
 -- Create orders table
